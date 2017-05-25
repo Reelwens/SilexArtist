@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Muse — Catalogue de leurs musiques</title>
+    <meta name="description" content="Retrouvez l'ensemble des titres de Muse dans notre catalogue de musique en ligne.">
+    <link rel="icon" type="image/png" href="{{ global.request.basepath }}/assets/img/icon.png" sizes="64x64">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500, 600" rel="stylesheet">
+    <link rel="stylesheet" href="{{ global.request.basepath }}/assets/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="{{ global.request.basepath }}/assets/css/main.css">
+</head>
+<body>
+
+    <div class="container">
+        <header id="header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav class="text-center">
+                        <div class="menu text-center">
+                            <a href="{{ url('home') }}" title="Retourner à l'accueil">Accueil</a>
+                            <div class="underline"></div>
+                        </div>
+                        <div class="menu text-center">
+                            <a href="{{ url('albums') }}" title="Accéder aux albums">Albums</a>
+                            <div class="underline"></div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>

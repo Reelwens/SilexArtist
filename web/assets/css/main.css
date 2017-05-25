@@ -1,0 +1,56 @@
+/* Reset a */
+a,a:link,a:visited,a:focus,a:active {
+    color:inherit;
+    outline:none;
+    text-decoration: none;
+}
+a:hover {
+    outline:none;
+    text-decoration: none;
+}
+
+
+body {
+    background-color: #f4f4f4;
+    color: #343434;
+    font-family: 'Poppins', sans-serif;
+}
+
+#header {
+    margin-top: 20px;
+}
+
+#header div.menu {
+    display: inline-block;
+    width: 150px;
+    cursor: pointer;
+    position: relative;
+    padding-top: 25px;
+}
+
+#header div.menu a {
+    font-size: 20px;
+    font-weight: 300;
+    transition: color 0.7s cubic-bezier(.42, 0, 0, 1), 
+}
+
+#header div.menu .underline {
+    background-color: #343434;
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    margin-top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    will-change: transform;
+    transition: width 0.7s cubic-bezier(.42, 0, 0, 1), background-color 0.7s cubic-bezier(.42, 0, 0, 1);
+}
+
+#header div.menu:hover .underline a {
+    color: #8e8e8e;
+}
+
+#header div.menu:hover .underline {
+    width: 50%;
+    background-color: #8e8e8e;
+}

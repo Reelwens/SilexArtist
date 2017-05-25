@@ -1,0 +1,6 @@
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /github/silex-artist/web/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
