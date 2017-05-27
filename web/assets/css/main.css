@@ -39,7 +39,7 @@ body {
 #header div.menu .underline {
     background-color: #343434;
     position: absolute;
-    width: 0%;
+    width: 10%;
     height: 1px;
     margin-top: 3px;
     left: 50%;

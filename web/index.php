@@ -32,12 +32,12 @@ $app->get('/albums', function() use ($app)
 ->bind('albums');
 
 
-$app->get('/album/{id}', function($id) use ($app)
+$app->get('/album/{name}', function($id) use ($app)
 {
     return $app['twig']->render('pages/album.twig');
 })
-->value('id', '1')
-->assert('id', '\d+')
+->value('name', 'drones')
+->assert('name', '\w+')
 ->bind('album');
 
 
