@@ -1,7 +1,8 @@
 <?php 
 
 // Require dependendies
-require_once __DIR__.'/../vendor/autoload.php';
+$loader = require_once __DIR__.'/../vendor/autoload.php';
+$loader->addPsr4('Site\\', __DIR__.'/../src/');
 
 // Init Silex
 $app = new Silex\Application();
@@ -12,6 +13,19 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
 
+// BDD
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array (
+        'driver'    => 'pdo_mysql',
+        'host'      => 'localhost',
+        'dbname'    => 'silex-artist',
+        'user'      => 'root',
+        'password'  => '',
+        'charset'   => 'utf8'
+    ),
+));
+
+$app['db']->setFetchMode(PDO::FETCH_OBJ);
 
 
 /*
@@ -27,17 +41,27 @@ $app->get('/', function() use ($app)
 
 $app->get('/albums', function() use ($app)
 {
-    return $app['twig']->render('pages/albums.twig');
+    $data = array();
+    
+    $albumsModel = new Site\Models\Albums($app['db']);
+    $data['albums'] = $albumsModel->getAll();
+    
+    return $app['twig']->render('pages/albums.twig', $data);
 })
 ->bind('albums');
 
 
-$app->get('/album/{name}', function($id) use ($app)
+$app->get('/album/{slug}', function($slug) use ($app)
 {
-    return $app['twig']->render('pages/album.twig');
+    $data = array();
+
+    $albumsModel = new Site\Models\Albums($app['db']);
+    $data['album'] = $albumsModel->getBySlug($slug);
+
+    return $app['twig']->render('pages/album.twig', $data);
 })
-->value('name', 'drones')
-->assert('name', '\w+')
+->value('slug', 'drones')
+->assert('slug', '\w+')
 ->bind('album');
 
 
