@@ -4,6 +4,6 @@
 <p>{{ album.year }}</p>
 <img src="{{ album.picture }}" alt="" width="300">
 
-<p>Liste des sons</p>
+<p>{{ album.songs|join(", ") }}</p>
 
 {{ include('partials/footer.twig') }}

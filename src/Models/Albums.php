@@ -24,7 +24,39 @@ class Albums {
         $prepare->bindValue('slug', $slug);
         $prepare->execute();
         $album = $prepare->fetch();
-
+        
+        if($album)
+        {
+            $album->songs = $this->_getSongsByAlbumId($album->id);
+        }
+        
         return $album; 
+    }
+    
+    private function _getSongsByAlbumId($id)
+    {
+        $prepare = $this->db->prepare('
+            SELECT
+                s.*
+            FROM
+                songs_albums AS sa
+            LEFT JOIN
+                songs AS s
+            ON
+                sa.id_songs = s.id
+            WHERE
+                sa.id_albums = :id_album
+        ');
+        $prepare->bindValue('id_album', $id);
+        $prepare->execute();
+        $songs = $prepare->fetchAll();
+
+        $songNames = array();
+        foreach($songs as $_song)
+        {
+            $songNames[] = $_song->name;
+        }
+
+        return $songNames;
     }
 }
