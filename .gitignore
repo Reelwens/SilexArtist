@@ -1,0 +1,3 @@
+# Vendor files
+# composer install to generate this folder
+/vendor/
