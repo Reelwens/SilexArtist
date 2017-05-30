@@ -1,9 +1,14 @@
 {{ include('partials/header.twig') }}
 
-<h2>{{ album.name }}</h2>
-<p>{{ album.year }}</p>
-<img src="{{ album.picture }}" alt="" width="300">
+<div id="album">
+    <h2>{{ album.name }}</h2>
+    <p>{{ album.year }}</p>
+    
+    <div class="boxAlbum">
+        <img src="{{ album.picture }}" alt="" width="300">
 
-<p>{{ album.songs|join(", ") }}</p>
+        <p>{{ album.songs|join(", ") }}</p>
+    </div>
+</div>
 
 {{ include('partials/footer.twig') }}
