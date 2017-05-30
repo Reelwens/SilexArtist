@@ -12,8 +12,33 @@ use Symfony\Component\Validator\Constraints\Length;
 $loader = require_once __DIR__.'/../vendor/autoload.php';
 $loader->addPsr4('Site\\', __DIR__.'/../src/');
 
+
+// Config
+$config = array();
+switch($_SERVER['HTTP_HOST'])
+{
+    case 'localhost':
+    case 'localhost:8888':
+        $config['debug'] = true;
+        $config['db_host'] = 'localhost';
+        $config['db_name'] = 'silex-artist';
+        $config['db_user'] = 'root';
+        $config['db_pass'] = 'root';
+        break;
+
+    case 'simonlucas.fr':
+        $config['debug'] = false;
+        $config['db_host'] = 'localhost';
+        $config['db_name'] = 'silex-artist';
+        $config['db_user'] = 'silex-artist';
+        $config['db_pass'] = '???';
+        break;
+}
+
+
 // Init Silex
 $app = new Silex\Application();
+$app['config'] = $config;
 $app['debug'] = true;
 
 // Services
@@ -25,10 +50,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array (
         'driver'    => 'pdo_mysql',
-        'host'      => 'localhost',
-        'dbname'    => 'silex-artist',
-        'user'      => 'root',
-        'password'  => '',
+        'host'      => $app['config']['db_host'],
+        'dbname'    => $app['config']['db_name'],
+        'user'      => $app['config']['db_user'],
+        'password'  => $app['config']['db_pass'],
         'charset'   => 'utf8'
     ),
 ));
@@ -52,6 +77,12 @@ $app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
 
 
 $app['db']->setFetchMode(PDO::FETCH_OBJ);
+
+
+// Middlewares
+$app->before(function() use ($app) {
+    $app['twig']->addGlobal('title', 'Muse — Catalogue d\'album');
+});
 
 
 /*
@@ -86,7 +117,6 @@ $app->get('/album/{slug}', function($slug) use ($app)
 
     return $app['twig']->render('pages/album.twig', $data);
 })
-->value('slug', 'drones')
 ->assert('slug', '\w+')
 ->bind('album');
 
@@ -194,6 +224,12 @@ $app->match('/contact', function(Request $request) use ($app)
     ->bind('contact');
 
 
+$app->error(function() use ($app)
+{
+    $data = array();
+    $data['title'] = 'Error';
+    return $app['twig']->render('pages/error.twig', $data);
+});
 
 /*
  * Run Silex

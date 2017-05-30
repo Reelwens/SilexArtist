@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <title>Muse — Catalogue de leurs musiques</title>
+    <title>{{title}}</title>
     <meta name="description" content="Retrouvez l'ensemble des titres de Muse dans notre catalogue de musique en ligne.">
     <link rel="icon" type="image/png" href="{{ global.request.basepath }}/assets/img/icon.png" sizes="64x64">
     
@@ -26,6 +26,10 @@
                         </div>
                         <div class="menu text-center">
                             <a href="{{ url('albums') }}" title="Accéder aux albums">Albums</a>
+                            <div class="underline"></div>
+                        </div>
+                        <div class="menu text-center">
+                            <a href="{{ url('contact') }}" title="Contacter le site">Contact</a>
                             <div class="underline"></div>
                         </div>
                     </nav>
