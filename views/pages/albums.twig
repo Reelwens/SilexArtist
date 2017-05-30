@@ -1,14 +1,22 @@
 {{ include('partials/header.twig') }}
 
-<h2>Albums</h2>
+<div id="albums">
+    <h2>Albums</h2>
 
-<div class="list">
-    {% for _album in albums %}
-        <a href="{{ url('album', {slug: _album.slug}) }}">
-            <p>{{ _album.name }}</p>
-            <img src="{{ _album.picture }}" alt="{{ _album.name }}" width="300" style="margin-bottom:50px">
-        </a>
-    {% endfor %}
+    <div class="list row">
+        {% for _album in albums %}
+            <div class="col-md-4">
+               
+                <a href="{{ url('album', {slug: _album.slug}) }}">
+                    <div class="albumBox text-center">
+                        <p>{{ _album.name }}</p>
+                        <img src="{{ _album.picture }}" alt="{{ _album.name }}">
+                    </div>
+                </a>
+                
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 {{ include('partials/footer.twig') }}
