@@ -146,16 +146,16 @@ $app->match('/contact', function(Request $request) use ($app)
         'name',
         TextType::class,
         array(
-            'label' => 'Your name',
+            'label' => 'Nom',
             'required' => false,
-            'trim' => true, // spaces
+            'trim' => true,
             'constraints' => array(
                 new Length (
                     array(
                         'min' => 3,
-                        'minMessage' => 'Too short',
+                        'minMessage' => 'Nom trop court',
                         'max' => 20,
-                        'maxMessage' => 'Too long'
+                        'maxMessage' => 'Nom trop long'
                     )
                 )
             )
@@ -164,19 +164,24 @@ $app->match('/contact', function(Request $request) use ($app)
 
     $formBuilder->add(
         'email',
-        EmailType::class            
+        EmailType::class,
+        array(
+            'label' => 'Mail de contact',
+            'required' => true,
+            'trim' => true
+        )
     );
 
     $formBuilder->add(
         'subject',
         ChoiceType::class, 
         array(
-            'label' => 'Subject',
+            'label' => 'Objet',
             'required' => true,
             'choices' => array(
-                'Informations' => 'Informations',
+                'Question' => 'Question',
                 'Proposition' => 'Proposition',
-                'Other' => 'Other'
+                'Autre' => 'Autre'
             )
         )
     );
@@ -187,7 +192,15 @@ $app->match('/contact', function(Request $request) use ($app)
         array(
             'label' => 'Message',
             'required' => true,
-            'trim' => true
+            'trim' => true,
+            'constraints' => array(
+                new Length (
+                    array(
+                        'min' => 10,
+                        'minMessage' => 'Message trop court',
+                    )
+                )
+            )
         )
     );
 
