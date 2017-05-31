@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 31 Mai 2017 à 07:32
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Client :  localhost:3306
+-- Généré le :  Mer 31 Mai 2017 à 09:51
+-- Version du serveur :  5.6.35
+-- Version de PHP :  7.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,13 +39,13 @@ CREATE TABLE `albums` (
 --
 
 INSERT INTO `albums` (`id`, `slug`, `name`, `picture`, `year`) VALUES
-(1, 'drones', 'Drones', 'https://upload.wikimedia.org/wikipedia/en/4/44/MuseDronesCover.jpg', 2015),
-(2, 'the_2nd_law', 'The 2nd Law', 'http://www.musewiki.org/images/The_2nd_Law.jpg', 2012),
-(3, 'the_resistance', 'The Resistance', 'http://planetgong.fr/admin/wp-content/uploads/2009/09/muse-the-resistance-front.jpg', 2009),
-(4, 'black_holes_and_revelations', 'Black Holes and Revelations', 'http://www.muse-france.fr/wp-content/uploads/2014/02/Muse-Black-holes-and-revelation.jpg', 2006),
-(5, 'absolution', 'Absolution', 'https://lastfm-img2.akamaized.net/i/u/ar0/76d9d3dc96e6ae51c01b4651c062947c', 2003),
-(6, 'origin_of_symmetry', 'Origin of Symmetry', 'http://www.albumrock.net/dyn_img/pochettes_album/2_150.jpg', 2001),
-(7, 'showbiz', 'Showbiz', 'http://www.muse-france.fr/wp-content/uploads/2013/04/1showbiz.jpg', 1999);
+(1, 'drones', 'Drones', 'MuseDronesCover.jpg', 2015),
+(2, 'the_2nd_law', 'The 2nd Law', 'The_2nd_Law.jpg', 2012),
+(3, 'the_resistance', 'The Resistance', 'muse-the-resistance-front.jpg', 2009),
+(4, 'black_holes_and_revelations', 'Black Holes and Revelations', 'Muse-Black-holes-and-revelation.jpg', 2006),
+(5, 'absolution', 'Absolution', '76d9d3dc96e6ae51c01b4651c062947c.jpeg', 2003),
+(6, 'origin_of_symmetry', 'Origin of Symmetry', '2_150.jpg', 2001),
+(7, 'showbiz', 'Showbiz', '1showbiz.jpg', 1999);
 
 -- --------------------------------------------------------
 
