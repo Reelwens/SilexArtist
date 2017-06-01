@@ -207,7 +207,10 @@ $app->match('/contact', function(Request $request) use ($app)
 
     $formBuilder->add(
         'submit',
-        SubmitType::class
+        SubmitType::class,
+        array(
+            'label' => 'Envoyer'
+        )
     );
 
     // Create form
