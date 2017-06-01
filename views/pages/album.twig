@@ -7,7 +7,9 @@
     <div class="boxAlbum">
         <img src="../assets/img/{{ album.picture }}" alt="" width="300">
 
-        <p>{{ album.songs|join(", ") }}</p>
+        {% for song in album.songs %}
+        <p>{{song}}</p>
+        {% endfor %}
     </div>
 </div>
 
