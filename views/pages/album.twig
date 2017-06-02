@@ -8,7 +8,12 @@
         <img src="../assets/img/{{ album.picture }}" alt="" width="300">
 
         {% for song in album.songs %}
-        <p>{{song}}</p>
+        <a href="{{song.2}}">
+            <p>
+                <span>{{song.0}}</span>
+                <span>{{song.1}}</span>
+            </p>
+        </a>
         {% endfor %}
     </div>
 </div>

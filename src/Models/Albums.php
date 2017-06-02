@@ -54,8 +54,7 @@ class Albums {
         $songNames = array();
         foreach($songs as $_song)
         {
-            $songNames[] = $_song->name;
-            $songNames[] = $_song->time;
+            $songNames[] = [$_song->name, $_song->time, $_song->link];
         }
 
         return $songNames;

@@ -53,7 +53,6 @@ $app->get('/album/{slug}', function($slug) use ($app)
 
     $albumsModel = new Site\Models\Albums($app['db']);
     $data['album'] = $albumsModel->getBySlug($slug);
-
     return $app['twig']->render('pages/album.twig', $data);
 })
 ->assert('slug', '\w+')
