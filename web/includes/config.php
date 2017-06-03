@@ -12,7 +12,7 @@ switch($_SERVER['HTTP_HOST'])
         $config['db_pass'] = 'root';
         break;
 
-    case 'simonlucas.fr':
+    case 'www.simonlucas.fr':
         $config['debug'] = false;
         $config['db_host'] = 'localhost';
         $config['db_name'] = 'silex-artist';
