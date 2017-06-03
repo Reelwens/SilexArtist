@@ -39,4 +39,5 @@ La base de donnée n'a été entierement remplie que pour les deux premiers albu
 * Utilisation d'un middleware
 * Configuration multi-environnementale
 * Requêtes SQL sécurisées
+* Ajout de différentes contraintes au formulaire
 * Séparation du code back-end pour une meilleure organisation
