@@ -1,20 +1,27 @@
 {{ include('partials/header.twig') }}
 
 <div id="album">
-    <h2>{{ album.name }}</h2>
-    <p>{{ album.year }}</p>
     
-    <div class="boxAlbum">
-        <img src="../assets/img/{{ album.picture }}" alt="" width="300">
-
-        {% for song in album.songs %}
-        <a href="{{song.2}}">
-            <p>
-                <span>{{song.0}}</span>
-                <span>{{song.1}}</span>
+    <div class="boxAlbum row">
+       
+        <div class="col-md-3 albumCol">
+            <img src="../assets/img/{{ album.picture }}" alt="{{ album.name }}">
+            <h2 class="text-center">{{ album.name }}</h2>
+            <p class="text-center year">{{ album.year }}</p>
+        </div>
+        
+        <div class="col-md-9 songCol">
+            {% for song in album.songs %}
+            <p class="songLine">
+                <a href="{{song.2}}" target="_blank">
+                    <span class="title">{{song.0}}</span>
+                    <span class="time">{{song.1}}</span>
+                </a>
             </p>
-        </a>
-        {% endfor %}
+            
+            {% endfor %}
+        </div>
+        
     </div>
 </div>
 
