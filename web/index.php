@@ -59,15 +59,6 @@ $app->get('/album/{slug}', function($slug) use ($app)
 ->bind('album');
 
 
-$app->get('/song/{id}', function($id) use ($app)
-{
-    return $app['twig']->render('pages/song.twig');
-})
-->value('id', '1')
-->assert('id', '\d+')
-->bind('song');
-
-
 $app->match('/contact', function(Request $request) use ($app)
 {
     $data = array();
