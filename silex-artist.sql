@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  localhost:3306
--- Généré le :  Mer 31 Mai 2017 à 09:51
--- Version du serveur :  5.6.35
--- Version de PHP :  7.0.15
+-- Client :  127.0.0.1
+-- Généré le :  Sam 03 Juin 2017 à 16:45
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -75,7 +75,27 @@ INSERT INTO `songs` (`id`, `slug`, `name`, `time`, `link`) VALUES
 (7, 'take_a_bow', 'Take a Bow', '4:35', 'https://www.youtube.com/watch?v=wQXit0vly2I'),
 (8, 'apocalypse_please', 'Apocalypse Please', '4:12', 'https://www.youtube.com/watch?v=YFrl01aPPkA'),
 (9, 'new_born', 'New Born', '6:03', 'https://www.youtube.com/watch?v=qhduQhDqtb4'),
-(10, 'sunburn', 'Sunburn', '3:54', 'https://www.youtube.com/watch?v=N9SZaOJEWXU');
+(10, 'sunburn', 'Sunburn', '3:54', 'https://www.youtube.com/watch?v=N9SZaOJEWXU'),
+(11, 'drill_sergeant', 'Drill Sergeant', '0:21', 'https://www.youtube.com/watch?v=uLOec6g1Pvw'),
+(12, 'reapers', 'Reapers', '5:59', 'https://www.youtube.com/watch?v=gcNEC9NaJuE'),
+(13, 'jfk', 'JFK', '0:54', 'https://www.youtube.com/watch?v=B2C2XeG0lSE'),
+(14, 'defector', 'Defector', '4:32', 'https://www.youtube.com/watch?v=kzbFxLNpguM'),
+(15, 'revolt', 'Revolt', '4:05', 'https://www.youtube.com/watch?v=91fQTXrSRZE'),
+(16, 'aftermath', 'Aftermath', '5:48', 'https://www.youtube.com/watch?v=YkB9a_DR-7A'),
+(17, 'the_globalist', 'The Globalist', '10:07', 'https://www.youtube.com/watch?v=4qagaaZfwXA'),
+(18, 'drones', 'Drones', '2:51', 'https://www.youtube.com/watch?v=cE8JlFjzfdQ'),
+(19, 'madness', 'Madness', '4:40', 'https://www.youtube.com/watch?v=Ek0SgwWmF9w'),
+(20, 'panic_station', 'Panic Station', '3:04', 'https://www.youtube.com/watch?v=6uBK5kvakD8'),
+(21, 'prelude', 'Prelude', '0:58', 'https://www.youtube.com/watch?v=gsmQioPt2x0'),
+(22, 'survival', 'Survival', '4:17', 'https://www.youtube.com/watch?v=bKFhS0cQLE8'),
+(23, 'follow_me', 'Follow Me', '3:51', 'https://www.youtube.com/watch?v=Qiu3rvYveSg'),
+(24, 'animals', 'Animals', '4:23', 'https://www.youtube.com/watch?v=tFG_5PBl2K8'),
+(25, 'explorers', 'Explorers', '5:47', 'https://www.youtube.com/watch?v=TLsxkxh8Ns0'),
+(26, 'big_freeze', 'Big Freeze', '4:40', 'https://www.youtube.com/watch?v=ftHMy7TbH-E'),
+(27, 'save_me', 'Save Me', '5:09', 'https://www.youtube.com/watch?v=zV8yLLphihk'),
+(28, 'liquid_state', 'Liquid State', '3:03', 'https://www.youtube.com/watch?v=lDjSDqkyQeA'),
+(29, 'the_2nd_law_unsustainable', 'The 2nd Law: Unsustainable', '3:48', 'https://www.youtube.com/watch?v=EF_xdvn52As'),
+(30, 'the_2nd_law_isolated_system', 'The 2nd Law: Isolated System', '5:00', 'https://www.youtube.com/watch?v=VXPoJAyeF8k');
 
 -- --------------------------------------------------------
 
@@ -102,7 +122,22 @@ INSERT INTO `songs_albums` (`id_songs`, `id_albums`) VALUES
 (7, 4),
 (8, 5),
 (9, 6),
-(10, 7);
+(10, 7),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 2),
+(20, 2),
+(21, 2),
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2);
 
 --
 -- Index pour les tables exportées
@@ -133,7 +168,7 @@ ALTER TABLE `albums`
 -- AUTO_INCREMENT pour la table `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
